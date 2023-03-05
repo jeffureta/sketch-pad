@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,35 @@
     <title>SketchPad</title>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
 </head>
+
 <body>
     <div class="flex-container">
-        <div class="title"><h1>SketchPad</h1></div>
+        <div class="title">
+            <h1>SketchPad</h1>
+        </div>
+        <div class="mode">mode: coloring</div>
         <div class="content">
             <div class="board"></div>
             <div class="buttons">
-                <button>black</button>
-                <button>white </button>
-                <button>random</button>
-                <button>reset</button>
+                <button onclick="changeColor('black')">black</button>
+                <button onclick="changeColor('white')">eraser</button>
+                <button onclick="changeColor('gray')">gray</button>
+                <button onclick="changeColor('random')">random</button>
+                <button onclick="resetBoard()">reset</button>
             </div>
             <div>
-                <input type="text" placeholder="size of board" value="16">
+                <input type="text" 
+                placeholder="size of board" 
+                value="16" 
+                onchange="changeSize(this.value)"
+                />
                 <button>set size</button>
             </div>
+            <div class="error">input must be between 2 and 100</div>
         </div>
     </div>
-</body> 
+    <script src="./main.js"></script>
+</body>
+
 </html>
